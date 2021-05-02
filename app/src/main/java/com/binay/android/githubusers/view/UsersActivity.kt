@@ -1,14 +1,17 @@
 package com.binay.android.githubusers.view
 
 import android.os.Bundle
+import android.os.StrictMode
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.binay.android.githubusers.R
 import com.binay.android.githubusers.adapters.TabPagerAdapter
 import com.binay.android.githubusers.adapters.UsersRecyclerViewAdapter
+import com.binay.android.githubusers.interfaces.RecyclerAdapterListener
 import com.google.android.material.tabs.TabLayout
 
-class UsersActivity : AppCompatActivity() {
+class UsersActivity : AppCompatActivity(){
     private lateinit var mTabLayout: TabLayout
     private lateinit var mViewPager: ViewPager
     private lateinit var mTabPagerAdapter: TabPagerAdapter
@@ -18,7 +21,6 @@ class UsersActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
         initView()
         setUpTabLayout()
-
     }
 
     private fun initView() {
@@ -32,5 +34,7 @@ class UsersActivity : AppCompatActivity() {
         mViewPager.adapter = mTabPagerAdapter
         mTabLayout.setupWithViewPager(mViewPager)
     }
+
+
 
 }
