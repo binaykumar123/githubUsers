@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up JDK 11
@@ -22,17 +22,17 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: Download Dependencies
-        uses: ./gradlew dependencies
+      - name: Download dependencies
+        run: ./gradlew dependencies
 
-      - name: Run Lint
-        uses: ./gradlew lint
+      - name: Run lint
+        run: ./gradlew lint
 
       - name: Run unit tests
-        uses: ./gradlew test
+        run: ./gradlew test
 
-      - name: Build Debug Apk
-        uses: ./gradlew assembleDebug
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v2
